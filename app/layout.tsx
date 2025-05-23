@@ -7,7 +7,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 // TON Connect manifest URL
-const manifestUrl = "https://raw.githubusercontent.com/ton-community/ton-connect-manifest/main/tonconnect-manifest.json";
+const manifestUrl = "https://ton-connect-test.vercel.app/manifest.json";
 
 export default function RootLayout({
     children,
