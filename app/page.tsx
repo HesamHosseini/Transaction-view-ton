@@ -8,12 +8,12 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { useState } from "react";
 
 export default function Home() {
-    const { connected } = useTonConnect();
+    const { connected, wallet, sender } = useTonConnect();
     const [txHash, setTxHash] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    console.log(connected);
+    console.log(connected, wallet, sender);
     return (
         <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gray-50">
             <Card className="w-full max-w-md">
