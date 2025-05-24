@@ -8,12 +8,15 @@ import { TonConnectButton } from "@tonconnect/ui-react";
 import { useState } from "react";
 
 export default function Home() {
-    const { connected, wallet, sender } = useTonConnect();
+    const tonConnect = useTonConnect();
     const [txHash, setTxHash] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    console.log(connected, wallet, sender);
+    console.log({ ...tonConnect });
+
+    
+
     return (
         <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gray-50">
             <Card className="w-full max-w-md">
@@ -25,7 +28,7 @@ export default function Home() {
                     <div className="flex flex-col items-center gap-6">
                         <TonConnectButton />
 
-                        {connected ? (
+                        {tonConnect.connected ? (
                             <TransactionForm setTxHash={setTxHash} setLoading={setLoading} setError={setError} loading={loading} />
                         ) : (
                             <p className="text-center text-muted-foreground">Please connect your wallet to send a transaction</p>

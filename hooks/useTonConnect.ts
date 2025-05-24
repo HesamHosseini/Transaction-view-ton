@@ -1,7 +1,5 @@
-"use client";
-
-import { useTonConnectUI } from "@tonconnect/ui-react";
-import type { Sender, SenderArguments } from "ton-core";
+import { useTonAddress, useTonConnectUI, useTonWallet } from "@tonconnect/ui-react";
+import { Sender, SenderArguments } from "ton-core";
 
 export function useTonConnect(): {
     sender: Sender;
@@ -9,12 +7,13 @@ export function useTonConnect(): {
     wallet: string | null;
 } {
     const [tonConnectUI] = useTonConnectUI();
+    const wallet = useTonWallet();
+    const address = useTonAddress();
 
     return {
         sender: {
             send: async (args: SenderArguments) => {
-                // This method handles sending transactions through the connected wallet
-                return tonConnectUI.sendTransaction({
+                await tonConnectUI.sendTransaction({
                     messages: [
                         {
                             address: args.to.toString(),
@@ -22,11 +21,11 @@ export function useTonConnect(): {
                             payload: args.body?.toBoc().toString("base64"),
                         },
                     ],
-                    validUntil: Date.now() + 5 * 60 * 1000, // 5 minutes
+                    validUntil: Date.now() + 5 * 60 * 1000,
                 });
             },
         },
-        connected: tonConnectUI?.connected ?? false,
-        wallet: tonConnectUI?.account?.address || null,
+        connected: wallet !== null,
+        wallet: address || null,
     };
 }
