@@ -1,39 +1,16 @@
 {
-    "name": "TON Connect Test",
-    "short_name": "TON Connect",
-    "description": "Test application for TON Connect integration",
+    "name": "TON Testnet Transaction Manager",
+    "short_name": "TON TX Manager",
+    "description": "Connect your wallet and manage TON transactions on the testnet.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
     "icons": [
         {
             "src": "/favicon.ico",
             "sizes": "64x64 32x32 24x24 16x16",
             "type": "image/x-icon"
-        },
-        {
-            "src": "/icons/icon-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "/icons/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any maskable"
         }
-    ],
-    "start_url": "/",
-    "display": "standalone",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "lang": "en",
-    "orientation": "portrait-primary",
-    "url": "https://ton-connect-test.vercel.app",
-    "iconUrl": "https://ton-connect-test.vercel.app/favicon.ico",
-    "termsOfUseUrl": "https://ton-connect-test.vercel.app/terms-of-use",
-    "privacyPolicyUrl": "https://ton-connect-test.vercel.app/privacy-policy",
-    "related_applications": [],
-    "prefer_related_applications": false,
-    "tonconnect": {
-        "manifestUrl": "https://ton-connect-test.vercel.app/tonconnect-manifest.json"
-    }
+    ]
 }

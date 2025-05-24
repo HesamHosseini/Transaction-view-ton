@@ -1,42 +1,29 @@
-"use client";
-import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import { Inter } from "next/font/google";
-import Head from "next/head";
-import * as React from "react";
 import "./globals.css";
 
+export const metadata = {
+    title: "TON Connect Test",
+    description: "Test application for TON Connect integration",
+    icons: {
+        icon: "/favicon.ico",
+    },
+    themeColor: "#ffffff",
+    manifest: "/manifest.json",
+    openGraph: {
+        title: "TON Connect Test",
+        description: "Test application for TON Connect integration",
+        images: ["/favicon.ico"],
+    },
+    "ton:name": "TON Connect Test",
+    "ton:icon": "https://ton-connect-test.vercel.app/favicon.ico",
+    "ton:manifest_url": "https://ton-connect-test.vercel.app/manifest.json",
+};
 const inter = Inter({ subsets: ["latin"] });
 
-// TON Connect configuration
-const manifestUrl = "https://ton-connect-test.vercel.app/tonconnect-manifest.json";
-
-export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function layout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <Head>
-                <title>TON Connect Test</title>
-                <meta name="description" content="Test application for TON Connect integration" />
-                <link rel="manifest" href="/manifest.json" />
-                <link rel="icon" href="/favicon.ico" />
-                <meta name="theme-color" content="#ffffff" />
-                <meta property="ton:name" content="TON Connect Test" />
-                <meta property="ton:icon" content="https://ton-connect-test.vercel.app/favicon.ico" />
-                <meta property="ton:manifest_url" content={manifestUrl} />
-            </Head>
-            <body className={inter.className}>
-                <TonConnectUIProvider
-                    manifestUrl={manifestUrl}
-                    actionsConfiguration={{
-                        twaReturnUrl: "https://t.me/your_tg_bot",
-                    }}
-                >
-                    {children}
-                </TonConnectUIProvider>
-            </body>
+            <body className={inter.className}>{children}</body>
         </html>
     );
 }

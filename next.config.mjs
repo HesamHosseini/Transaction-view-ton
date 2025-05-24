@@ -24,6 +24,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  redirects: async () => [
+    {
+      source: '/',
+      destination: '/transfer',
+      permanent: true,
+    },
+  ],
 }
 
 export default nextConfig
